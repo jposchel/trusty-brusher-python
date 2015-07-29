@@ -3,6 +3,7 @@
 """tests_model.py: Tests for the model of the educational game Trusty Brusher."""
 
 import sys
+from tooth import Tooth
 
 def test_tooth_class():
     """
