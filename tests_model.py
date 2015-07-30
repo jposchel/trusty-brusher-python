@@ -5,6 +5,7 @@
 import sys
 from tooth import Tooth
 from germ import Germ
+from food import Food
 
 def test_tooth_class():
     """
@@ -60,9 +61,35 @@ def test_germ_class():
         e = sys.exc_info()[0]
         print("Caught an error: %s" % e)
 
+def test_food_class():
+    """
+       Test Food class.
+
+    """
+    try:
+        ice_cream_cone = Food("ice cream cone", 10, 1)
+        assert ice_cream_cone.get_food_type() == "ice cream cone"
+        assert ice_cream_cone.get_decay_value() == 10
+        assert ice_cream_cone.get_cleaning_value() == 1
+
+        ice_cream_cone.set_food_type("strawberry ice cream cone")
+        assert ice_cream_cone.get_food_type() == "strawberry ice cream cone"
+
+        carrot = Food("carrot", 2, 10)
+        carrot.set_decay_value(1)
+        carrot.set_cleaning_value(15)
+        assert carrot.get_decay_value() == 1
+        assert carrot.get_cleaning_value() == 15
+
+        print("All Food class tests pass!")
+    except:
+        e = sys.exc_info()[0]
+        print("Caught an error: %s" % e)
+
 def main():
     test_tooth_class()
     test_germ_class()
+    test_food_class()
 
 if __name__ =='__main__':
     main()
