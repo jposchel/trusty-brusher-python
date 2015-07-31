@@ -25,7 +25,7 @@ class Person:
     	self.is_brushing = False
     	self.is_flossing = False
     
-    def __change_person_states(self, awake_state, sleeping_state, eating_state,
+    def __change_action_states(self, awake_state, sleeping_state, eating_state,
       hurting_state, brushing_state, flossing_state):
         self.is_awake = awake_state
         self.is_sleeping = sleeping_state
@@ -33,7 +33,7 @@ class Person:
         self.is_hurting = hurting_state
         self.is_brushing = brushing_state
         self.is_flossing = flossing_state
-    
+
     def be_alert(self):
 
 
