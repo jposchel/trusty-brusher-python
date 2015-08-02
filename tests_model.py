@@ -6,6 +6,7 @@ import sys
 from tooth import Tooth
 from germ import Germ
 from food import Food
+from person import Person
 
 def test_tooth_class():
     """
@@ -86,10 +87,26 @@ def test_food_class():
         e = sys.exc_info()[0]
         print("Caught an error: %s" % e)
 
+def test_person_class():
+    """
+       Test Person class.
+
+    """
+    try:
+        Bobby = Person("Bobby", "Male")
+        assert Bobby.get_name() == "Bobby"
+        assert Bobby.get_gender() == "Male"
+
+        print("All Person class tests pass!")
+    except:
+        e = sys.exc_info()[0]
+        print("Caught an error: %s" % e)
+
 def main():
     test_tooth_class()
     test_germ_class()
     test_food_class()
+    test_person_class()
 
 if __name__ =='__main__':
     main()
