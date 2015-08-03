@@ -3,7 +3,7 @@
 """person.py: Public Person class representing a person in the educational game Trusty Brusher."""
 
 class Person:
-	"""
+    """
        A Person who eats and needs dental care.
        self.name: string value indicating the person's name
        self.gender: string value indicating the person's gender
@@ -24,7 +24,7 @@ class Person:
         self.is_hurting = False
         self.is_brushing = False
         self.is_flossing = False
-    
+
     def __change_action_states(self, awake_state, sleeping_state, eating_state, hurting_state, brushing_state, flossing_state):
         self.is_awake = awake_state
         self.is_sleeping = sleeping_state
