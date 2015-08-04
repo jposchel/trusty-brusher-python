@@ -97,6 +97,78 @@ def test_person_class():
         assert Bobby.get_name() == "Bobby"
         assert Bobby.get_gender() == "Male"
 
+        Bobby.set_name("Robert")
+        assert Bobby.get_name() == "Robert"
+
+        Abbie = Person("Abbie", "Female")
+        assert Abbie.get_is_awake() == True
+        assert Abbie.get_is_sleeping() == False
+        assert Abbie.get_is_eating() == False
+        assert Abbie.get_is_hurting() == False
+        assert Abbie.get_is_brushing() == False
+        assert Abbie.get_is_flossing() == False
+
+        Abbie.go_to_sleep()
+        assert Abbie.get_is_awake() == False
+        assert Abbie.get_is_sleeping() == True
+        assert Abbie.get_is_eating() == False
+        assert Abbie.get_is_hurting() == False
+        assert Abbie.get_is_brushing() == False
+        assert Abbie.get_is_flossing() == False
+
+        Abbie.eat()
+        assert Abbie.get_is_awake() == True
+        assert Abbie.get_is_sleeping() == False
+        assert Abbie.get_is_eating() == True
+        assert Abbie.get_is_hurting() == False
+        assert Abbie.get_is_brushing() == False
+        assert Abbie.get_is_flossing() == False
+
+        Abbie.hurt()
+        assert Abbie.get_is_awake() == True
+        assert Abbie.get_is_sleeping() == False
+        assert Abbie.get_is_eating() == False
+        assert Abbie.get_is_hurting() == True
+        assert Abbie.get_is_brushing() == False
+        assert Abbie.get_is_flossing() == False
+
+        Abbie.brush_teeth()
+        assert Abbie.get_is_awake() == True
+        assert Abbie.get_is_sleeping() == False
+        assert Abbie.get_is_eating() == False
+        assert Abbie.get_is_hurting() == False
+        assert Abbie.get_is_brushing() == True
+        assert Abbie.get_is_flossing() == False
+
+        Abbie.floss_teeth()
+        assert Abbie.get_is_awake() == True
+        assert Abbie.get_is_sleeping() == False
+        assert Abbie.get_is_eating() == False
+        assert Abbie.get_is_hurting() == False
+        assert Abbie.get_is_brushing() == False
+        assert Abbie.get_is_flossing() == True
+
+        Abbie.be_alert()
+        assert Abbie.get_is_awake() == True
+        assert Abbie.get_is_sleeping() == False
+        assert Abbie.get_is_eating() == False
+        assert Abbie.get_is_hurting() == False
+        assert Abbie.get_is_brushing() == False
+        assert Abbie.get_is_flossing() == False
+
+        Abbie.toggle_awake()
+        assert Abbie.get_is_awake() == False
+        Abbie.toggle_sleeping()
+        assert Abbie.get_is_sleeping() == True
+        Abbie.toggle_eating()
+        assert Abbie.get_is_eating() == True
+        Abbie.toggle_hurting()
+        assert Abbie.get_is_hurting() == True
+        Abbie.toggle_brushing()
+        assert Abbie.get_is_brushing() == True
+        Abbie.toggle_flossing()
+        assert Abbie.get_is_flossing() == True
+
         print("All Person class tests pass!")
     except:
         e = sys.exc_info()[0]
