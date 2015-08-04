@@ -28,8 +28,9 @@ def test_tooth_class():
 
         print("All Tooth class tests pass!")
     except:
-        e = sys.exc_info()[0]
-        print("Caught an error: %s" % e)
+        message_1 = sys.exc_info()[0]
+        message_2 = sys.exc_info()[2]
+        print("Caught an error: {}\n                 {}".format(message_1, message_2))
 
 def test_germ_class():
     """
@@ -59,8 +60,9 @@ def test_germ_class():
 
         print("All Germ class tests pass!")
     except:
-        e = sys.exc_info()[0]
-        print("Caught an error: %s" % e)
+        message_1 = sys.exc_info()[0]
+        message_2 = sys.exc_info()[2]
+        print("Caught an error: {}\n                 {}".format(message_1, message_2))
 
 def test_food_class():
     """
@@ -84,8 +86,9 @@ def test_food_class():
 
         print("All Food class tests pass!")
     except:
-        e = sys.exc_info()[0]
-        print("Caught an error: %s" % e)
+        message_1 = sys.exc_info()[0]
+        message_2 = sys.exc_info()[2]
+        print("Caught an error: {}\n                 {}".format(message_1, message_2))
 
 def test_person_class():
     """
@@ -171,8 +174,9 @@ def test_person_class():
 
         print("All Person class tests pass!")
     except:
-        e = sys.exc_info()[0]
-        print("Caught an error: %s" % e)
+        message_1 = sys.exc_info()[0]
+        message_2 = sys.exc_info()[2]
+        print("Caught an error: {}\n                 {}".format(message_1, message_2))
 
 def main():
     test_tooth_class()
