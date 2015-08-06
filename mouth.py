@@ -1,4 +1,4 @@
-#!/user/bin/env python
+#!/usr/bin/env python
 
 """mouth.py: Public Mouth class representing the mouth of a person in the educational game Trusty Brusher."""
 
