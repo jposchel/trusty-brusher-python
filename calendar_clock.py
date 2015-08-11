@@ -16,10 +16,9 @@ class Calendar_Clock(threading.Thread):
        To use Calendar_Clock, create an instance and call Python threading module methods on that instance:
 
            some_new_clock = Calendar_Clock()
-
            # ... or ...
-
            some_new_clock = Calendar_Clock("Friday", 17, 5)
+
            some_new_clock.start()
            
            # ... do some work ...
@@ -41,3 +40,32 @@ class Calendar_Clock(threading.Thread):
 
     def run(self):
         pass
+
+    def get_day(self):
+        return self.current_day
+
+    def set_day(self, new_day):
+        self.current_day = new_day
+
+    def get_hour(self):
+        return current_hour
+
+    def set_hour(self, new_hour):
+        self.current_hour = new_hour
+
+    def get_minute(self):
+        return self.current_minute
+
+    def set_minute(self, new_minute):
+        self.current_minute = new_minute
+
+    def get_time_stamp(self):
+        if self.current_hour < 10:
+    	    formated_hour = "0{}".format(str(current_hour))
+        else:
+            formated_hour = str(current_hour)
+    	if self.current_minute < 10:
+    	    formated_minute = "0{}".format(str(current_minute))
+    	else:
+    	    formated_minute = str(current_minute)
+        return "{} {}:{}".format(current_day, formated_hour, formated_minute)
