@@ -48,7 +48,7 @@ class Calendar_Clock(threading.Thread):
         self.current_day = new_day
 
     def get_hour(self):
-        return current_hour
+        return self.current_hour
 
     def set_hour(self, new_hour):
         self.current_hour = new_hour
