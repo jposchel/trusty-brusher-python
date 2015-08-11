@@ -61,11 +61,11 @@ class Calendar_Clock(threading.Thread):
 
     def get_time_stamp(self):
         if self.current_hour < 10:
-    	    formated_hour = "0{}".format(str(current_hour))
+    	    formated_hour = "0{}".format(str(self.current_hour))
         else:
-            formated_hour = str(current_hour)
+            formated_hour = str(self.current_hour)
     	if self.current_minute < 10:
-    	    formated_minute = "0{}".format(str(current_minute))
+    	    formated_minute = "0{}".format(str(self.current_minute))
     	else:
-    	    formated_minute = str(current_minute)
-        return "{} {}:{}".format(current_day, formated_hour, formated_minute)
+    	    formated_minute = str(self.current_minute)
+        return "{} {}:{}".format(self.current_day, formated_hour, formated_minute)

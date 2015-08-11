@@ -186,6 +186,7 @@ def test_calendar_clock_class():
     """
     try:
         timekeeper = Calendar_Clock()
+        print(timekeeper.get_time_stamp())
 
         print("All Calendar_Clock class tests pass!")
     except:
