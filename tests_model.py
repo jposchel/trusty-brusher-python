@@ -179,15 +179,15 @@ def test_person_class():
         message_2 = sys.exc_info()[2]
         print("Caught an error: {}\n                 {}".format(message_1, message_2))
 
-def test_calender_clock_class():
+def test_calendar_clock_class():
     """
-       Test Calender_Clock class.
+       Test Calendar_Clock class.
 
     """
     try:
-        timekeeper = Calender_Clock()
+        timekeeper = Calendar_Clock()
 
-        print("All Calender_Clock class tests pass!")
+        print("All Calendar_Clock class tests pass!")
     except:
         message_1 = sys.exc_info()[0]
         message_2 = sys.exc_info()[2]
@@ -199,7 +199,7 @@ def main():
     test_germ_class()
     test_food_class()
     test_person_class()
-    test_calender_clock_class()
+    test_calendar_clock_class()
 
 if __name__ =='__main__':
     main()
