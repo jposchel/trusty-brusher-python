@@ -7,7 +7,7 @@ from tooth import Tooth
 from germ import Germ
 from food import Food
 from person import Person
-from calendar_clock import Calender_Clock
+from calendar_clock import Calendar_Clock
 
 def test_tooth_class():
     """
