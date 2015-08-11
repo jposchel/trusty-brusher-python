@@ -25,27 +25,31 @@ class Calendar_Clock(threading.Thread):
            # ... use instance methods defined below ...
            # ... and when finished ...
 
-           some_new_clock.end()
+           some_new_clock.join()
 
        Some class design elements taken from Python Advanced Turtorial 5 - MultiThreading
        by DrapsTV, found here: https://youtu.be/EvbA3qVMGaw
 
     """
-    def __init__(self, init_start_day="Sunday", init_start_hour=7, init_start_minute=0):
+    def __init__(self, init_start_day="SUNDAY", init_start_hour=7, init_start_minute=0):
         threading.Thread.__init__(self)
         self.day_list = [ "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY" ]
         self.current_day = init_start_day
+        self.current_day = self.current_day.upper()
         self.current_hour = init_start_hour
         self.current_minute = init_start_minute
 
     def run(self):
-        pass
+        while True:
+            #self.day_list.index(self.current_day)
+            time.sleep(0.5)
 
     def get_day(self):
         return self.current_day
 
     def set_day(self, new_day):
         self.current_day = new_day
+        self.current_day = self.current_day.upper()
 
     def get_hour(self):
         return self.current_hour
