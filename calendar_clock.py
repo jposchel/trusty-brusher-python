@@ -12,6 +12,7 @@ class Calendar_Clock(threading.Thread):
        self.current_day: string value indicating the current day of the week
        self.current_hour: int value indicating the current hour of the day (24-hour clock is used, 0-23)
        self.current_minute: int value indicating the current minute of the hour (60 minutes per hour, 0-59)
+       self.stop_clock_flag: bool value indicating whether or not the Calendar Clock should stop
 
        To use Calendar_Clock, create an instance and call Python threading module methods on that instance:
 
@@ -25,6 +26,7 @@ class Calendar_Clock(threading.Thread):
            # ... use instance methods defined below ...
            # ... and when finished ...
 
+           some_new_clock.stop()
            some_new_clock.join()
 
        Some class design elements taken from Python Advanced Turtorial 5 - MultiThreading
@@ -33,6 +35,7 @@ class Calendar_Clock(threading.Thread):
     """
     def __init__(self, init_start_day="SUNDAY", init_start_hour=7, init_start_minute=0):
         threading.Thread.__init__(self)
+        self.stop_clock_flag = False
         self.day_list = [ "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY" ]
         self.current_day = init_start_day
         self.current_day = self.current_day.upper()
@@ -40,9 +43,12 @@ class Calendar_Clock(threading.Thread):
         self.current_minute = init_start_minute
 
     def run(self):
-        while True:
+        while self.stop_clock_flag == False:
             #self.day_list.index(self.current_day)
             time.sleep(0.5)
+
+    def stop(self):
+        self.stop_clock_flag = True
 
     def get_day(self):
         return self.current_day
