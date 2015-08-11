@@ -7,6 +7,7 @@ from tooth import Tooth
 from germ import Germ
 from food import Food
 from person import Person
+from calendar_clock import Calender_Clock
 
 def test_tooth_class():
     """
@@ -178,11 +179,27 @@ def test_person_class():
         message_2 = sys.exc_info()[2]
         print("Caught an error: {}\n                 {}".format(message_1, message_2))
 
+def test_calender_clock_class():
+    """
+       Test Calender_Clock class.
+
+    """
+    try:
+        timekeeper = Calender_Clock()
+
+        print("All Calender_Clock class tests pass!")
+    except:
+        message_1 = sys.exc_info()[0]
+        message_2 = sys.exc_info()[2]
+        print("Caught an error: {}\n                 {}".format(message_1, message_2))
+
+
 def main():
     test_tooth_class()
     test_germ_class()
     test_food_class()
     test_person_class()
+    test_calender_clock_class()
 
 if __name__ =='__main__':
     main()
