@@ -3,6 +3,7 @@
 """tests_model.py: Tests for the model of the educational game Trusty Brusher."""
 
 import sys
+import time
 from tooth import Tooth
 from germ import Germ
 from food import Food
@@ -186,7 +187,31 @@ def test_calendar_clock_class():
     """
     try:
         timekeeper = Calendar_Clock()
-        print(timekeeper.get_time_stamp())
+        assert timekeeper.get_time_stamp() == "SUNDAY 07:00"
+        assert timekeeper.get_day() == "SUNDAY"
+        assert timekeeper.get_hour() == 7
+        assert timekeeper.get_minute() == 0
+
+        custom_clock = Calendar_Clock("Thursday", 0, 32)
+        assert custom_clock.get_time_stamp() == "THURSDAY 00:32"
+        assert custom_clock.get_day() == "THURSDAY"
+        assert custom_clock.get_hour() == 0
+        assert custom_clock.get_minute() == 32
+
+        custom_clock.set_day("Saturday")
+        custom_clock.set_hour(23)
+        custom_clock.set_minute(55)
+        assert custom_clock.get_time_stamp() == "SATURDAY 23:55"
+        assert custom_clock.get_day() == "SATURDAY"
+        assert custom_clock.get_hour() == 23
+        assert custom_clock.get_minute() == 55
+
+        custom_clock.start()
+        for counter in range(10):
+            print(custom_clock.get_time_stamp())
+            time.sleep(0.1)
+        custom_clock.stop()
+        custom_clock.join()
 
         print("All Calendar_Clock class tests pass!")
     except:
