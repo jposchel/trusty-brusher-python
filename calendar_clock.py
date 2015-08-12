@@ -44,8 +44,19 @@ class Calendar_Clock(threading.Thread):
 
     def run(self):
         while self.stop_clock_flag == False:
-            #self.day_list.index(self.current_day)
-            time.sleep(0.5)
+            if self.current_minute == 59:
+                self.current_minute = 0
+                if self.current_hour == 23:
+                    self.current_hour = 0
+                    if self.day_list.index(self.current_day) == 6:
+                        self.current_day = self.day_list[0]
+                    else:
+                        self.current_day = self.day_list[ self.day_list.index(self.current_day) + 1 ]
+                else:
+                    self.current_hour = self.current_hour + 1
+            else:
+                self.current_minute = self.current_minute + 1
+            time.sleep(0.1)
 
     def stop(self):
         self.stop_clock_flag = True
