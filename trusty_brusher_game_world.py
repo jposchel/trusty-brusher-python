@@ -9,9 +9,15 @@ from person import Person
 from tooth import Tooth
 
 class Trusty_Brusher_Game_World:
-    def __init__(self, init_person_name, init_person_gender):
+    def __init__(self, init_person_name, init_person_gender, healthy_food_info, unhealthy_food_info):
         self.master_clock = Calendar_Clock()
         self.main_person = Person(init_person_name, init_person_gender)
-        for counter in range(26):
-            self.tooth[].append(Tooth(counter, False, 0))
-
+        self.teeth = [Tooth(counter, False, 0) for counter in range(26)]
+        self.healthy_food = [Food(specs[0], specs[1], specs[2]) for specs in healthy_food_info]
+        self.unhealthy_food = [Food(specs[0], specs[1], specs[2]) for specs in unhealthy_food_info]
+        self.upcoming_food = []
+        self.tooth_brush = False
+        self.tooth_paste = False
+        self.floss = False
+        self.game_over = False
+        self.game_paused = False
