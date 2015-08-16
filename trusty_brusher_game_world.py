@@ -42,3 +42,6 @@ class Trusty_Brusher_Game_World:
 
     def set_toothpaste_status(self, new_paste_status):
         self.toothpaste = new_paste_status
+
+    def add_healthy_food(self, food_item_specs):
+        self.healthy_food.extend(Food(food_item_specs[0], food_item_specs[1], food_item_specs[2]))
