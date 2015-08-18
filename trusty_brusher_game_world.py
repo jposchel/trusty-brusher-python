@@ -49,3 +49,10 @@ class Trusty_Brusher_Game_World:
     def remove_healthy_food(self):
         if len(self.healthy_food) > 0:
             self.healthy_food.remove( self.healthy_food[ len(self.healthy_food - 1) ] )
+
+    def add_unhealthy_food(self, food_item_specs):
+        self.unhealthy_food.extend(Food(food_item_specs[0], food_item_specs[1], food_item_specs[2]))
+
+    def remove_unhealthy_food(self):
+        if len(self.unhealthy_food) > 0:
+            self.unhealthy_food.remove( self.unhealthy_food[ len(self.unhealthy_food - 1) ] )
