@@ -16,6 +16,8 @@ class Trusty_Brusher_Game_World:
         self.healthy_food = [Food(specs[0], specs[1], specs[2]) for specs in healthy_food_info]
         self.unhealthy_food = [Food(specs[0], specs[1], specs[2]) for specs in unhealthy_food_info]
         self.upcoming_food = []
+        self.current_food = None
+        self.food_pointer = None
         self.toothbrush = False
         self.toothpaste = False
         self.floss = False
@@ -56,3 +58,24 @@ class Trusty_Brusher_Game_World:
     def remove_unhealthy_food(self):
         if len(self.unhealthy_food) > 0:
             self.unhealthy_food.remove( self.unhealthy_food[ len(self.unhealthy_food - 1) ] )
+
+    def _advance_food(self):
+        if self.food_pointer == None:
+            self.current_food = self.healthy_food[0]
+            self.food_pointer = [1, 0]
+        elif self.food_pointer[0] == 0:
+            self.current_food = self.unhealthy_food[self.food_pointer[1]]
+            if self.food_pointer[1] == len(self.unhealthy_food) - 1:
+                self.food_pointer = [1, 0]
+            else:
+                self.food_pointer = [1, self.food_pointer[1] + 1]
+        elif self.current_food[0] == 1:
+            self.current_food = self.healthy_food[self.food_pointer[1]]
+            if self.food_pointer[1] == len(self.healthy_food) - 1:
+                self.food_pointer = [0, 0]
+            else:
+                self.food_pointer = [0, self.food_pointer[1] + 1]
+
+    def eat(self):
+        # Put awesomeness here
+        # Eat well
