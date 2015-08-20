@@ -15,7 +15,6 @@ class Trusty_Brusher_Game_World:
         self.teeth = [Tooth(counter, False, 0) for counter in range(26)]
         self.healthy_food = [Food(specs[0], specs[1], specs[2]) for specs in healthy_food_info]
         self.unhealthy_food = [Food(specs[0], specs[1], specs[2]) for specs in unhealthy_food_info]
-        self.upcoming_food = []
         self.current_food = None
         self.food_pointer = None
         self.toothbrush = False
