@@ -17,6 +17,7 @@ class Trusty_Brusher_Game_World:
         self.unhealthy_food = [Food(specs[0], specs[1], specs[2]) for specs in unhealthy_food_info]
         self.current_food = None
         self.food_pointer = None
+        self.germs = []
         self.toothbrush = False
         self.toothpaste = False
         self.floss = False
@@ -78,3 +79,5 @@ class Trusty_Brusher_Game_World:
     def eat(self):
         # Put awesomeness here
         # Eat well
+        self._advance_food()
+        self.main_person.eat()
